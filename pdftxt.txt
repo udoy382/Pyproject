@@ -1,0 +1,463 @@
+AUTOMATE THE BORING STUFF WITH PYTHONAUTOMATE THE 
+BORING STUFF 
+WITH PYTHONPractical Programming 
+ for Total Beginnersby Al SweigartSan FranciscoAUTOM
+ATE THE BORING STUFF W
+ITH PYTHON.
+ Copyright © 2015 by Al Sweigart.All rights reserved. No part of this work may be reproduced or transmitted in any form or by any means, electronic or mechanical, including photocopying, recording, or by any information storage or retrieval 
+system, without the prior written permission of the copyright owner and the publisher.Printed in USA
+Second printing
+19 18 17 16 15  
+2 3 4 5 6 7 8 9ISBN-10: 1-59327-599-4ISBN-13: 978-1-59327-599-0Publisher: William PollockProduction Editor: Laurel Chun
+Cover Illustration: Josh Ellingson 
+Interior Design: Octopod Studios
+Developmental Editors: Jennifer Griffith-Delgado, Greg Poulos, and Leslie Shen
+Technical Reviewer: Ari Lacenski
+Copyeditor: Kim Wimpsett
+Compositor: Susan Glinert Stevens
+Proofreader: Lisa Devoto Farrell 
+Indexer: BIM Indexing and Proofreading ServicesFor information on distribution, translations, or bulk sales,  please contact No Starch Press, Inc. directly:No Starch Press, Inc.245 8th Street, San Francisco, CA 94103
+phone: 415.863.9900; info@nostarch.com 
+www.nostarch.comLibrary of Congress Control Number:  2014953114
+No Starch Press and the No Starch Press logo are registered trademarks of No Starch Press, Inc. Other product and company names mentioned herein may be the trademarks of their respective owners. Rather 
+than use a trademark symbol with every occurrence of a trademarked name, we are using the names only in an editorial fashion and to the benefit of the trademark owner, with no intention of infringement of the 
+trademark.The information in this book is distributed on an ﬁAs Isﬂ basis, without warranty. While every precaution has been taken in the preparation of this work, neither the author nor No Starch Press, Inc. shall have any 
+liability to any person or entity with respect to any loss or damage caused or alleged to be caused directly or 
+indirectly by the information contained in it.This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 United States License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/us/ 
+or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.SFI-00000For my nephew JackAbout the AuthorAl Sweigart is a software developer and tech book author living in San 
+ Francisco. Python is his favorite programming language, and he is the 
+developer of several open source modules for it. His other books are freely 
+available under a Creative Commons license on his website http://www
+ .inven
+twithpython.com/
+. His cat weighs 14 pounds.About the Tech ReviewerAri Lacenski is a developer of Android applications and Python software. 
+She lives in San Francisco, where she writes about Android programming at 
+http://gradlewhy.ghost.io/
+ and mentors with Women Who Code. She™s also a folk guitarist.BRIEF CONTENT
+SAcknowledgments ...................................................xxiiiIntroduction..........................................................1PART I: PYTHON PROGRAMMING BASICS...............................11Chapter 1: Python Basics ...............................................13Chapter 2: Flow Control................................................31Chapter 3: Functions ..................................................61Chapter 4: Lists ......................................................79Chapter 5: Dictionaries and Structuring Data.................................105Chapter 6: Manipulating Strings .........................................123PART II: AUTOMATING TASKS.......................................145Chapter 7: Pattern Matching with Regular Expressions ..........................147Chapter 8: Reading and Writing Files .....................................173Chapter 9: Organizing Files ............................................197Chapter 10: Debugging ...............................................215Chapter 11: Web Scraping ............................................233Chapter 12: Working with Excel Spreadsheets ...............................265Chapter 13: Working with PDF and Word Documents ..........................295Chapter 14: Working with CSV Files and JSON Data ..........................319Chapter 15: Keeping Time, Scheduling Tasks, and Launching Programs..............335Chapter 16: Sending Email and Text Messages...............................361Chapter 17: Manipulating Images........................................387Chapter 18: Controlling the Keyboard and Mouse with GUI Automation .............413Appendix A: Installing Third-Party Modules..................................441Appendix B: Running Programs..........................................443Appendix C: Answers to the Practice Questions...............................447Index ............................................................461CONTENT
+S IN DET
+AIL
+ACKNOWLEDGMENTS xxiiiINTRODUCTION 1Whom Is This Book For?..............................................2Conventions ......................................................2What Is Programming?...............................................3What Is Python? .............................................4Programmers Don™t Need to Know Much Math........................4Programming Is a Creative Activity ................................5About This Book....................................................5Downloading and Installing Python ......................................6Starting IDLE ......................................................7The Interactive Shell...........................................8How to Find Help...................................................8Asking Smart Programming Questions ....................................9Summary .......................................................10PART I: PYTHON PROGRAMMING BASICS 111 PYTHON BASICS 13Entering Expressions into the Interactive Shell...............................14The Integer, Floating-Point, and String Data Types ...........................16String Concatenation and Replication....................................17Storing Values in Variables...........................................18Assignment Statements........................................18Variable Names............................................20Your First Program .................................................21Dissecting Your Program.............................................22Comments ................................................23The print() Function ..........................................23The input() Function..........................................23Printing the User™s Name ......................................24The len() Function ...........................................24The str(), int(), and float() Functions ...............................25Summary .......................................................28Practice Questions .................................................282 FLOW CONTROL 31Boolean Values ...................................................32Comparison Operators..............................................33Boolean Operators.................................................35x   Contents in Detail
+Binary Boolean Operators .....................................35The not Operator ...........................................36Mixing Boolean and Comparison Operators...............................36Elements of Flow Control.............................................37Conditions................................................37Blocks of Code.............................................37Program Execution.................................................38Flow Control Statements .............................................38if Statements...............................................38else Statements.............................................39elif Statements .............................................40while Loop Statements........................................45break Statements............................................49continue Statements..........................................50for Loops and the range() Function ...............................53Importing Modules.................................................57from import Statements .......................................58Ending a Program Early with sys.exit() ...................................58Summary .......................................................58Practice Questions .................................................593 FUNCTIONS 61def Statements with Parameters ........................................63Return Values and return Statements.....................................63The None Value...................................................65Keyword Arguments and print()........................................65Local and Global Scope.............................................67Local Variables Cannot Be Used in the Global Scope ..................67Local Scopes Cannot Use Variables in Other Local Scopes...............68Global Variables Can Be Read from a Local Scope....................69Local and Global Variables with the Same Name.....................69The global Statement ...............................................70Exception Handling ................................................72A Short Program: Guess the Number ....................................74Summary .......................................................76Practice Questions .................................................76Practice Projects...................................................77The Collatz Sequence ........................................77Input Validation ............................................774 LISTS 79The List Data Type .................................................80Getting Individual Values in a List with Indexes.......................80Negative Indexes ...........................................82Getting Sublists with Slices.....................................82Getting a List™s Length with len() .................................83Changing Values in a List with Indexes ............................83Contents in Detail
+   xiList Concatenation and List Replication.............................83Removing Values from Lists with del Statements.......................84Working with Lists .................................................84Using for Loops with Lists......................................86The in and not in Operators....................................87The Multiple Assignment Trick...................................87Augmented Assignment Operators......................................88Methods........................................................89Finding a Value in a List with the index() Method .....................89Adding Values to Lists with the append() and insert() Methods ............89Removing Values from Lists with remove()  ..........................90Sorting the Values in a List with the sort() Method .....................91Example Program: Magic 8 Ball with a List ................................92List-like Types: Strings and Tuples.......................................93Mutable and Immutable Data Types ..............................94The Tuple Data Type .........................................96Converting Types with the list() and tuple() Functions ...................97References.......................................................97Passing References .........................................100The copy Module™s copy() and deepcopy() Functions..................100Summary ......................................................101Practice Questions ................................................102Practice Projects..................................................102Comma Code.............................................102Character Picture Grid.......................................1035 DICTIONARIES AND STRUCTURING DATA 105The Dictionary Data Type ...........................................105Dictionaries vs. Lists.........................................106The keys(), values(), and items() Methods 
+. . . . . . . . . . . . . . . . . . . . . . . . . . 107
+Checking Whether a Key or Value Exists in a Dictionary ...............109The get() Method...........................................109The setdefault() Method ......................................110Pretty Printing ...................................................111Using Data Structures to Model Real-World Things..........................112A Tic-Tac-Toe Board.........................................113Nested Dictionaries and Lists ..................................117Summary ......................................................119Practice Questions ................................................119Practice Projects..................................................120Fantasy Game Inventory .....................................120List to Dictionary Function for Fantasy Game Inventory.................1206 MANIPULATING STRINGS 123Working with Strings ..............................................123String Literals .............................................124Indexing and Slicing Strings...................................126The in and not in Operators with Strings ..........................127xii
+   Contents in Detail
+Useful String Methods..............................................127The upper(), lower(), isupper(), and islower() String Methods ............128The isX String Methods ......................................129The startswith() and endswith() String Methods ......................131The join() and split() String Methods .............................131Justifying Text with rjust(), ljust(), and center() .......................133Removing Whitespace with strip(), rstrip(), and lstrip() .................134Copying and Pasting Strings with the pyperclip Module................135Project: Password Locker............................................136Step 1: Program Design and Data Structures .......................136Step 2: Handle Command Line Arguments.........................137Step 3: Copy the Right Password ...............................137Project: Adding Bullets to Wiki Markup..................................139Step 1: Copy and Paste from the Clipboard........................139Step 2: Separate the Lines of Text and Add the Star ..................140Step 3: Join the Modified Lines.................................141Summary ......................................................141Practice Questions ................................................142Practice Project ..................................................142Table Printer..............................................142PART II: AUTOMATING TAS
+KS 1457 PATTERN MATCHING WITH REGULAR EXPRESSIONS 147Finding Patterns of Text Without Regular Expressions ........................148Finding Patterns of Text with Regular Expressions...........................150Creating Regex Objects  .....................................150Matching Regex Objects .....................................151Review of Regular Expression Matching...........................152More Pattern Matching with Regular Expressions...........................152Grouping with Parentheses....................................152Matching Multiple Groups with the Pipe...........................153Optional Matching with the Question Mark ........................154Matching Zero or More with the Star.............................155Matching One or More with the Plus.............................155Matching Specific Repetitions with Curly Brackets....................156Greedy and Nongreedy Matching.....................................156The findall() Method...............................................157Character Classes ................................................158Making Your Own Character Classes...................................159The Caret and Dollar Sign Characters ..................................159The Wildcard Character............................................160Matching Everything with Dot-Star...............................161Matching Newlines with the Dot Character ........................162Review of Regex Symbols ...........................................162Case-Insensitive Matching...........................................163Contents in Detail
+   xiii
+Substituting Strings with the sub() Method ................................163Managing Complex Regexes.........................................164Combining re.IGNORECASE, re.DOTALL, and re.VERBOSE ...................164Project: Phone Number and Email Address Extractor ........................165Step 1: Create a Regex for Phone Numbers........................166Step 2: Create a Regex for Email Addresses........................166Step 3: Find All Matches in the Clipboard Text......................167Step 4: Join the Matches into a String for the Clipboard................168Running the Program........................................169Ideas for Similar Programs....................................169Summary ......................................................169Practice Questions ................................................170Practice Projects..................................................171Strong Password Detection....................................171Regex Version of strip() ......................................1718 READING AND WRITING FILES 173Files and File Paths................................................173Backslash on Windows and Forward Slash on OS X and Linux...........174The Current Working Directory.................................175Absolute vs. Relative Paths....................................175Creating New Folders with os.makedirs()..........................176The os.path Module ...............................................177Handling Absolute and Relative Paths ............................177Finding File Sizes and Folder Contents............................179Checking Path Validity.......................................180The File Reading/Writing Process .....................................180Opening Files with the open() Function ...........................181Reading the Contents of Files ..................................182Writing to Files............................................183Saving Variables with the shelve Module ................................184Saving Variables with the pprint.pformat() Function .........................185Project: Generating Random Quiz Files..................................186Step 1: Store the Quiz Data in a Dictionary 
+. . . . . . . . . . . . . . . . . . . . . . . . 187
+Step 2: Create the Quiz File and Shuffle the Question Order ............188Step 3: Create the Answer Options..............................189Step 4: Write Content to the Quiz and Answer Key Files...............189Project: Multiclipboard .............................................191Step 1: Comments and Shelf Setup ..............................192Step 2: Save Clipboard Content with a Keyword ....................192Step 3: List Keywords and Load a Keyword™s Content .................193Summary ......................................................194Practice Questions ................................................194Practice Projects..................................................194Extending the Multiclipboard ..................................194Mad Libs ................................................195Regex Search.............................................195xiv
+   Contents in Detail
+9 ORGANIZING FILES 197The shutil Module.................................................198Copying Files and Folders ....................................198Moving and Renaming Files and Folders ..........................199Permanently Deleting Files and Folders ...........................200Safe Deletes with the send2trash Module..........................201Walking a Directory Tree ...........................................202Compressing Files with the zipfile Module................................203Reading ZIP Files ..........................................204Extracting from ZIP Files......................................205Creating and Adding to ZIP Files ...............................205Project: Renaming Files with American-Style Dates to  European-Style Dates...........................................206Step 1: Create a Regex for American-Style Dates ....................206Step 2: Identify the Date Parts from the Filenames....................207Step 3: Form the New Filename and Rename the Files.................209Ideas for Similar Programs....................................209Project: Backing Up a Folder into a ZIP File...............................209Step 1: Figure Out the ZIP File™s Name ...........................210Step 2: Create the New ZIP File ................................211Step 3: Walk the Directory Tree and Add to the ZIP File ...............211Ideas for Similar Programs....................................212Summary ......................................................212Practice Questions ................................................213Practice Projects..................................................213Selective Copy ............................................213Deleting Unneeded Files .....................................213Filling in the Gaps..........................................21410 DEBUGGING 215Raising Exceptions................................................216Getting the Traceback as a String .....................................217Assertions......................................................219Using an Assertion in a Traffic Light Simulation......................219Disabling Assertions ........................................221Logging .......................................................221Using the logging Module ....................................221Don™t Debug with print()......................................223Logging Levels ............................................223Disabling Logging..........................................224Logging to a File...........................................225IDLE™s Debugger .................................................225Go ....................................................226Step ...................................................226Over...................................................226Out....................................................227Contents in Detail
+   xvQuit ...................................................227Debugging a Number Adding Program...........................227Breakpoints ..............................................229Summary ......................................................231Practice Questions ................................................231Practice Project ..................................................232Debugging Coin Toss .......................................23211 WEB SCRAPING 233Project: mapIt.py with the webbrowser Module ............................234Step 1: Figure Out the URL....................................234Step 2: Handle the Command Line Arguments ......................235Step 3: Handle the Clipboard Content and Launch the Browser ..........236Ideas for Similar Programs....................................236Downloading Files from the Web with the requests Module....................237Downloading a Web Page with the requests.get() Function .............237Checking for Errors.........................................238Saving Downloaded Files to the Hard Drive ..............................239HTML .........................................................240Resources for Learning HTML ..................................240A Quick Refresher..........................................240Viewing the Source HTML of a Web Page .........................241Opening Your Browser™s Developer Tools..........................242Using the Developer Tools to Find HTML Elements....................244Parsing HTML with the BeautifulSoup Module .............................245Creating a BeautifulSoup Object from HTML........................245Finding an Element with the select() Method........................246Getting Data from an Element™s Attributes .........................248Project: ﬁI™m Feeling Luckyﬂ Google Search...............................248Step 1: Get the Command Line Arguments and Request the Search Page....249Step 2: Find All the Results....................................249Step 3: Open Web Browsers for Each Result .......................250Ideas for Similar Programs....................................251Project: Downloading All XKCD Comics .................................251Step 1: Design the Program ...................................252Step 2: Download the Web Page 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 253
+Step 3: Find and Download the Comic Image ......................254Step 4: Save the Image and Find the Previous Comic .................255Ideas for Similar Programs....................................256Controlling the Browser with the selenium Module ..........................256Starting a Selenium-Controlled Browser ...........................256Finding Elements on the Page..................................257Clicking the Page ..........................................259Filling Out and Submitting Forms................................259Sending Special Keys .......................................260Clicking Browser Buttons .....................................261More Information on Selenium .................................261xvi
+   Contents in Detail
+Summary ......................................................261Practice Questions ................................................261Practice Projects..................................................262Command Line Emailer ......................................262Image Site Downloader......................................2632048...................................................263Link Verification ...........................................26312 WORKING WITH EXCEL SPREADSHEETS 265Excel Documents .................................................266Installing the openpyxl Module .......................................266Reading Excel Documents...........................................266Opening Excel Documents with OpenPyXL.........................267Getting Sheets from the Workbook ..............................268Getting Cells from the Sheets ..................................268Converting Between Column Letters and Numbers....................270Getting Rows and Columns from the Sheets ........................270Workbooks, Sheets, Cells ....................................272Project: Reading Data from a Spreadsheet ...............................272Step 1: Read the Spreadsheet Data..............................273Step 2: Populate the Data Structure..............................274Step 3: Write the Results to a File ...............................275Ideas for Similar Programs....................................276Writing Excel Documents ...........................................277Creating and Saving Excel Documents............................277Creating and Removing Sheets.................................278Writing Values to Cells ......................................278Project: Updating a Spreadsheet ......................................279Step 1: Set Up a Data Structure with the Update Information ............280Step 2: Check All Rows and Update Incorrect Prices ..................281Ideas for Similar Programs....................................281Setting the Font Style of Cells.........................................282Font Objects ....................................................282Formulas.......................................................284Adjusting Rows and Columns ........................................285Setting Row Height and Column Width ...........................285Merging and Unmerging Cells .................................286Freeze Panes .............................................287Charts ........................................................288Summary ......................................................290Practice Questions ................................................291Practice Projects..................................................291Multiplication Table Maker....................................291Blank Row Inserter..........................................292Spreadsheet Cell Inverter.....................................292Text Files to Spreadsheet .....................................293Spreadsheet to Text Files .....................................293Contents in Detail
+   xvii
+13 WORKING WITH PDF AND WORD DOCUMENTS 295PDF Documents ..................................................295Extracting Text from PDFs.....................................296Decrypting PDFs ...........................................297Creating PDFs.............................................298Project: Combining Select Pages from Many PDFs ..........................303Step 1: Find All PDF Files.....................................304Step 2: Open Each PDF......................................304Step 3: Add Each Page......................................305Step 4: Save the Results......................................305Ideas for Similar Programs....................................306Word Documents.................................................306Reading Word Documents....................................307Getting the Full Text from a .docx File ............................308Styling Paragraph and Run Objects..............................309Creating Word Documents with Nondefault Styles ...................310Run Attributes.............................................311Writing Word Documents ....................................312Adding Headings ..........................................314Adding Line and Page Breaks..................................315Adding Pictures............................................315Summary ......................................................316Practice Questions ................................................316Practice Projects..................................................317PDF Paranoia.............................................317Custom Invitations as Word Documents 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . 317
+Brute-Force PDF Password Breaker...............................31814 WORKING WITH CSV FILES AND JSON DATA 319The csv Module ..................................................320Reader Objects............................................321Reading Data from Reader Objects in a for Loop ....................322Writer Objects ............................................322The delimiter and lineterminator Keyword Arguments..................323Project: Removing the Header from CSV Files .............................324Step 1: Loop Through Each CSV File.............................325Step 2: Read in the CSV File ..................................325Step 3: Write Out the CSV File Without the First Row .................326Ideas for Similar Programs....................................327JSON and APIs ..................................................327The json Module .................................................328Reading JSON with the loads() Function ..........................328Writing JSON with the dumps() Function ..........................329Project: Fetching Current Weather Data .................................329Step 1: Get Location from the Command Line Argument................330Step 2: Download the JSON Data...............................330Step 3: Load JSON Data and Print Weather........................331Ideas for Similar Programs....................................332Summary ......................................................333xviii
+   Contents in Detail
+Practice Questions ................................................333Practice Project ..................................................333Excel-to-CSV Converter ......................................33315 KEEPING TIME, SCHEDULING TAS
+KS, 
+ AND LAUNCHING PROGRAMS 335The time Module .................................................336The time.time() Function 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 336
+The time.sleep() Function .....................................337Rounding Numbers ...............................................338Project: Super Stopwatch ...........................................338Step 1: Set Up the Program to Track Times.........................339Step 2: Track and Print Lap Times...............................339Ideas for Similar Programs....................................340The datetime Module ..............................................341The timedelta Data Type .....................................342Pausing Until a Specific Date ..................................344Converting datetime Objects into Strings ..........................344Converting Strings into datetime Objects ..........................345Review of Python™s Time Functions .....................................346Multithreading...................................................347Passing Arguments to the Thread™s Target Function ...................348Concurrency Issues .........................................349Project: Multithreaded XKCD Downloader................................350Step 1: Modify the Program to Use a Function ......................350Step 2: Create and Start Threads ...............................351Step 3: Wait for All Threads to End..............................352Launching Other Programs from Python..................................352Passing Command Line Arguments to Popen().......................354Task Scheduler, launchd, and cron ..............................354Opening Websites with Python.................................355Running Other Python Scripts ..................................355Opening Files with Default Applications...........................355Project: Simple Countdown Program....................................357Step 1: Count Down ........................................357Step 2: Play the Sound File....................................357Ideas for Similar Programs....................................358Summary ......................................................358Practice Questions ................................................359Practice Projects..................................................359Prettified Stopwatch.........................................360Scheduled Web Comic Downloader 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 360
+16 SENDING EMAIL AND TEXT MESSAGES 361SMTP .........................................................362Sending Email...................................................362Connecting to an SMTP Server .................................363Sending the SMTP ﬁHelloﬂ Message .............................364Contents in Detail
+   xix
+Starting TLS Encryption ......................................364Logging in to the SMTP Server .................................364Sending an Email ..........................................365Disconnecting from the SMTP Server .............................366IMAP .........................................................366Retrieving and Deleting Emails with IMAP................................366Connecting to an IMAP Server .................................367Logging in to the IMAP Server .................................368Searching for Email.........................................368Fetching an Email and Marking It As Read.........................372Getting Email Addresses from a Raw Message......................373Getting the Body from a Raw Message ...........................374Deleting Emails............................................375Disconnecting from the IMAP Server .............................375Project: Sending Member Dues Reminder Emails ...........................376Step 1: Open the Excel File ...................................376Step 2: Find All Unpaid Members...............................378Step 3: Send Customized Email Reminders.........................378Sending Text Messages with Twilio ....................................380Signing Up for a Twilio Account................................380Sending Text Messages......................................381Project: ﬁJust Text Meﬂ Module........................................383Summary ......................................................384Practice Questions ................................................384Practice Projects..................................................385Random Chore Assignment Emailer..............................385Umbrella Reminder .........................................385Auto Unsubscriber..........................................385Controlling Your Computer Through Email .........................38617 MANIPULATING IMAGES 387Computer Image Fundamentals .......................................388Colors and RGBA Values.....................................388Coordinates and Box Tuples...................................389Manipulating Images with Pillow ......................................390Working with the Image Data Type..............................392Cropping Images ..........................................393Copying and Pasting Images onto Other Images.....................394Resizing an Image..........................................397Rotating and Flipping Images..................................398Changing Individual Pixels....................................400Project: Adding a Logo.............................................401Step 1: Open the Logo Image..................................401Step 2: Loop Over All Files and Open Images ......................402Step 3: Resize the Images ....................................403Step 4: Add the Logo and Save the Changes.......................404Ideas for Similar Programs....................................406Drawing on Images ...............................................406Drawing Shapes...........................................406Drawing Text .............................................408xx
+   Contents in Detail
+Summary ......................................................410Practice Questions ................................................410Practice Projects..................................................411Extending and Fixing the Chapter Project Programs...................411Identifying Photo Folders on the Hard Drive ........................411Custom Seating Cards.......................................41218 CONTROLLING THE KEYBOARD AND MOUSE 
+ WITH GUI AUTOMATION 413Installing the pyautogui Module.......................................414Staying on Track .................................................414Shutting Down Everything by Logging Out .........................414Pauses and Fail-Safes .......................................415Controlling Mouse Movement ........................................415Moving the Mouse .........................................416Getting the Mouse Position....................................417Project: ﬁWhere Is the Mouse Right Now?ﬂ...............................417Step 1: Import the Module ....................................418Step 2: Set Up the Quit Code and Infinite Loop......................418Step 3: Get and Print the Mouse Coordinates.......................418Controlling Mouse Interaction ........................................419Clicking the Mouse .........................................420Dragging the Mouse ........................................420Scrolling the Mouse.........................................422Working with the Screen............................................423Getting a Screenshot........................................423Analyzing the Screenshot.....................................424Project: Extending the mouseNow Program...............................424Image Recognition................................................425Controlling the Keyboard ...........................................426Sending a String from the Keyboard .............................426Key Names ..............................................427Pressing and Releasing the Keyboard ............................428Hotkey Combinations .......................................429Review of the PyAutoGUI Functions ....................................430Project: Automatic Form Filler ........................................430Step 1: Figure Out the Steps...................................432Step 2: Set Up Coordinates ...................................432Step 3: Start Typing Data.....................................434Step 4: Handle Select Lists and Radio Buttons.......................435Step 5: Submit the Form and Wait ..............................436Summary ......................................................437Practice Questions ................................................438Practice Projects..................................................438Looking Busy .............................................438Instant Messenger Bot .......................................438Game-Playing Bot Tutorial ....................................439Contents in Detail
+   xxi
+A INSTALLING THIRD-PARTY MODULES 441The pip Tool ....................................................441Installing Third-Party Modules ........................................442B RUNNING PROGRAMS 443Shebang Line....................................................443Running Python Programs on Windows..................................444Running Python Programs on OS X and Linux .............................445Running Python Programs with Assertions Disabled .........................445C 
+ANSWERS TO THE PRACTICE QUESTIONS 447Chapter 1......................................................448Chapter 2......................................................448Chapter 3......................................................450Chapter 4......................................................450Chapter 5......................................................451Chapter 6......................................................451Chapter 7......................................................452Chapter 8......................................................453Chapter 9......................................................453Chapter 10.....................................................454Chapter 11.....................................................455Chapter 12.....................................................456Chapter 13.....................................................456Chapter 14.....................................................457Chapter 15.....................................................457Chapter 16.....................................................458Chapter 17.....................................................458Chapter 18.....................................................458INDEX 461ACKNOWLE
+DGMENT
+SI couldn™t have written a book like this without the 
+help of a lot of people. I™d like to thank Bill Pollock; 
+
+my editors, Laurel Chun, Leslie Shen, Greg Poulos, 
+
+and Jennifer Grif˜th-Delgado; and the rest of the staff 
+
+at No Starch Press for their invaluable help. Thanks to 
+
+my tech reviewer, Ari Lacenski, for great suggestions, 
+
+edits, and support.
+Many thanks to our Benevolent Dictator For Life, Guido van Rossum, 
+and everyone at the Python Software Foundation for their great work. The 
+Python community is the best one I™ve found in the tech industry.
+Finally, I would like to thank my family, friends, and the gang at 
+Shotwell™s for not minding the busy life I™ve had while writing this book. 
+
+Cheers!
+INTRO
+DUCTION
+ﬁYou™ve just done in two hours what it takes 
+the three of us two days to do.ﬂ My college 
+roommate was working at a retail electronics 
+store in the early 2000s. Occasionally, the store 
+would receive a spreadsheet of thousands of product 
+prices from its competitor. A team of three employees
+would print the spreadsheet onto a thick stack of paper and split it among 
+themselves. For each product price, they would look up their store™s price 
+
+and note all the products that their competitors sold for less. It usually took 
+
+a couple of days.
+ﬁYou know, I could write a program to do that if you have the original 
+˜le for the printouts,ﬂ my roommate told them, when he saw them sitting 
+
+on the ˚oor with papers scattered and stacked around them.
+After a couple of hours, he had a short program that read a competi-
+tor™s price from a ˜le, found the product in the store™s database, and noted 
+
+whether the competitor was cheaper. He was still new to programming, and 
+2   Introduction
+he spent most of his time looking up documentation in a programming 
+book. The actual program took only a few seconds to run. My roommate 
+
+and his co-workers took an extra-long lunch that day.
+This is the power of computer programming. A computer is like a Swiss 
+Army knife that you can con˜gure for countless tasks. Many people spend 
+
+hours clicking and typing to perform repetitive tasks, unaware that the 
+
+machine they™re using could do their job in seconds if they gave it
+ the right 
+instruct
+ions.
+Whom 
+Is This Book 
+For?
+Software is at the core of so many of the tools we use today: Nearly everyone 
+
+uses social networks to communicate, many people have Internet-connected 
+
+computers in their phones, and most of˜ce jobs involve interacting with
+ a computer to get wo
+rk done. As a result, the demand for people who can code 
+has skyrocketed. Countless books, interactive web tutorials, and developer 
+
+boot camps promise to turn ambitious beginners into software engineers 
+
+with six-˜gure salaries.
+This book is not for those people. It™s for everyone else.
+
+On its own, this book won™t turn you into a professional software devel-
+oper any more than a few guitar lessons will turn you into a rock star. But if 
+
+you™re an of˜ce worker, administrator, academic, or anyone else who uses a 
+
+computer for work or fun, you will learn the basics of programming so that 
+
+you can automate simple tasks such as the following:
+Moving and renaming thousands of ˜les and sorting them into folders
+Filling out online forms, no typing required
+Downloading ˜les or copy text from a website whenever it updates
+Having your computer text you custom noti˜cations
+Updating or formatting Excel spreadsheets
+Checking your email and sending out prewritten responses
+
+These tasks are simple but time-consuming for humans, and they™re 
+often so trivial or speci˜c that there™s no ready-made software to perform 
+them. Armed with a little bit of programming knowledge, you can have 
+
+your computer do these tasks for you.
+Conventions
+This book is not designed as a reference manual; it™s a guide for begin-
+
+ners. The coding style sometimes goes against best practices (for example, 
+
+some programs use global variables), but that™s a trade-off to make the code 
+
+simpler to learn. This book is made for people to write throwaway code, so 
+
+there™s not much time spent on style and elegance. Sophisticated program-
+
+ming conceptsŠlike object-oriented programming, list comprehensions, 
+Introduction
+   3and generatorsŠaren™t covered because of the complexity they add. 
+Veteran programmers may point out ways the code in this book could 
+
+be
+ changed to improve e
+f˜ciency, but this book is mostly concerned with 
+getting programs to work with the least amount of effort.
+What 
+Is Programming?
+Television shows and ˜lms often show programmers furiously typing cryptic 
+
+streams of 1s and 0s on glowing screens, but modern programming isn™t 
+
+that mysterious. 
+Programming
+ is simply the act of entering instructions for 
+the computer to perform. These instructions might crunch some numbers, 
+
+modify text, look up information in ˜les, or communicate with other com-
+
+puters over the Internet. 
+All programs use basic instructions as building blocks. Here are a few 
+of the most common ones, in English: 
+ﬁDo this; then do that.ﬂ 
+ﬁIf this condition is true, perform this action; otherwise, do that action.ﬂ
+
+ﬁDo this action that number of times.ﬂ 
+
+ﬁKeep doing that until this condition is true.ﬂ
+You can combine these building blocks to implement more intricate 
+decisions, too. For example, here are the programming instructions, called 
+the 
+source code
+, for a simple program written in the Python programming 
+language. Starting at the top, the Python software runs each line of code 
+
+(some lines are run only 
+if
+ a certain condition is true or 
+else
+ Python runs 
+some other line) until it reaches the bottom.
+ passwordFile = open('SecretPasswordFile.txt') secretPassword = passwordFile.read()
+ print('Enter your password.')typedPassword = input() if typedPassword == secretPassword:
+    print('Access granted')
+    if typedPassword == '12345':
+       print('That password is one that an idiot puts on their luggage.')else:    print('Access denied')You might not know anything about programming, but you could prob-
+ably make a reasonable guess at what the previous code does just by reading 
+it. First, the ˜le 
+SecretPasswordFile.txt
+ is opened 
+, and the secret password in 
+it is read 
+. Then, the user is prompted to input a password (from the key-
+board) 
+. These two passwords are compared 
+, and if they™re the same, 
+the program prints 
+Access granted
+ to the screen 
+. Next, the program checks 
+to see whether the password is 
+12345
+  and hints that this choice might not 
+be the best for a password 
+. If the passwords are not the same, the pro-
+gram prints 
+Access denied
+ to the screen 
+. 4   Introduction
+What Is Python?
+Python
+ refers to the Python programming language (with syntax rules for 
+writing what is considered valid Python code) and the Python interpreter 
+software that reads source code (written in the Python language) and per-
+
+forms its instructions. The Python interpreter is free to download from 
+
+http://python.org/
+, and there are versions for Linux, OS X, and Windows. 
+The name Python comes from the surreal British comedy group Monty 
+Python, not from the snake. Python programmers are affectionately called 
+
+Pythonistas, and both Monty Python and serpentine references usually pep-
+
+per Python tutorials and documentation.
+Programmers Don™t Need to Know Much Math
+The most common anxiety I hear about learning to program is that people 
+
+think it requires a lot of math. Actually, most programming doesn™t require 
+
+math beyond basic arithmetic. In fact, being good at programming isn™t 
+
+that different from being good at solving Sudoku puzzles.
+To solve a Sudoku puzzle, the numbers 1 through 9 must be ˜lled in for 
+each row, each column, and each 3×3 interior square of the full 9×9 board. 
+
+You ˜nd a solution by applying deduction and logic from the starting num-
+
+bers. For example, since 5 appears in the top left of the Sudoku puzzle shown 
+
+in Figure 0-1, it cannot appear elsewhere in the top row, in the leftmost col-
+
+umn, or in the top-left 3×3 square. Solving one row, column, or square at a 
+
+time will provide more number clues for the rest of the puzzle.
+                                                 Figure 0-1: A new Sudoku puzzle (left) and its solution (right). Despite using numbers, 
+Sudoku doesn™t involve much math. (Images © Wikimedia Commons)
+Just because Sudoku involves numbers doesn™t mean you have to 
+be
+ good at math to ˜gure o
+ut the solution. The same is true of program-
+ming. Like solving a Sudoku puzzle, writing programs involves breaking 
+down a problem into individual, detailed steps. Similarly, when 
+debugging
+ programs (that is, ˜nding and ˜xing errors), you™ll patiently observe what 
+
+the program is doing and ˜nd the cause of the bugs. And like all skills, the 
+
+more you program, the better you™ll become.
+Introduction
+   5Programming Is a Creative Activity
+Programming is a creative task, somewhat like constructing a castle out 
+of
+ LEGO bricks. You start w
+ith a basic idea of what you want your castle 
+to
+ look like and invento
+ry your available blocks. Then you start building. 
+Once you™ve ˜nished building your program, you can pretty up your code 
+
+just like you would your castle. 
+The difference between programming and other creative activities is 
+that when programming, you have all the raw materials you need in your 
+
+computer; you don™t need to buy any additional canvas, paint, ˜lm, yarn, 
+
+LEGO bricks, or electronic components. When your program is written, it 
+
+can easily be shared online with the entire world. And though you™ll make 
+
+mistakes when programming, the activity is still a lot of fun.
+About 
+This Book
+The ˜rst part of this book covers basic Python programming concepts, and 
+
+the second part covers various tasks you can have your computer automate. 
+
+Each chapter in the second part has project programs for you to study. Here™s 
+
+a brief rundown of what you™ll ˜nd in each chapter:
+Part I: P
+rogramming 
+Chapter 1: Python Basics
+ Covers expressions
+, the most basic type of 
+Python instruction, and how to use the Python interactive shell soft-
+ware to experiment with code.
+Chapter 2: Flow Control
+ Explains how to make pro
+grams decide 
+which instructions to execute so your code can intelligently respond to 
+different conditions.
+Chapter 3: Functions
+ Instructs you on how to d
+e˜ne your own func-
+tions so that you can organize your code into more manageable chunks.
+
+Chapter 4: Lists
+ Introduces the list da
+ta type and explains how to 
+organize data.
+
+Chapter 5: Dictionaries and Structuring Data
+ Introduces the dicti
+on
+-ary data type and shows you more powerful ways to organize data.
+
+Chapter 6: Manipulating Strings
+ Covers working with t
+ext data 
+(called 
+strings
+ in Python). 
+Part II: Automating Tasks
+Chapter 7: Pattern Matching with Regular Expressions
+ Covers how 
+Python can m
+anipulate strings and search for text patterns with regular 
+expressions.
+
+Chapter 8: Reading and Writing Files
+ Explains how your prog
+rams 
+can read the contents of text ˜les and save information to ˜les on your 
+hard drive.
+Chapter 9: Organizing Files
+ Shows how Python can co
+py, move, 
+rename, and delete large numbers of ˜les much faster than a human 
+user can. It also explains compressing and decompressing ˜les.
+6   Introduction
+Chapter 10: Debugging
+ Shows how to use Pyth
+on™s various bug-
+ ˜nding and bug-˜x
+ing tools.
+Chapter 11: Web Scraping
+ Shows how to write pro
+grams that can 
+automatically download web pages and parse them for information. 
+This is called 
+web scraping
+.Chapter 12: Working with Excel Spreadsheets
+ Covers programma
+ti
+-cally manipulating Excel spreadsheets so that you don™t have to read 
+
+them. This is helpful when the number of documents you have to ana-
+
+lyze is in the hundreds or thousands.
+Chapter 13: Working with PDF and Word Documents
+ Covers pro
+-grammat
+ically reading Word and PDF documents.
+Chapter 14: Working with CSV Files and JSON Data
+ Continues to 
+expl
+ain how to programmatically manipulate documents with CSV and 
+JSON ˜les.
+
+Chapter 15: Keeping Time, Scheduling Tasks, and Launching 
+Programs
+ Explains how time a
+nd dates are handled by Python pro-
+grams and how to schedule your computer to perform tasks at certain 
+
+times. This chapter also shows how your Python programs can launch 
+
+non-Python programs.
+Chapter 16: Sending Email and Text Messages
+ Explains how to wri
+te 
+programs that can send emails and text messages on your behalf.
+
+Chapter 17: Manipulating Images
+ Explains how to prog
+rammatically 
+manipulate images such as JPEG or PNG ˜les.
+
+Chapter 18: Controlling the Keyboard and Mouse with GUI Automation
+  Explains how to prog
+rammatically control the mouse and keyboard to 
+automate clicks and keypresses.
+Downloading and 
+Installing Python
+You can download Python for Windows, OS X, and Ubuntu for free from 
+http://python.org/downloads/
+. If you download the latest version from the 
+website™s download page, all of the programs in this book should work.
+WARNING
+  Be sure to download a version of Python 3 (such as 3.4.0). The programs in this book 
+
+are written to run on P
+ython 3 and may not run correctly, if at all, on Python 2.
+You™ll ˜nd Python installers for 64-bit and 32-bit computers for each 
+operating system on the download page, so ˜rst ˜gure out which installer 
+
+you need. If you bought your computer in 2007 or later, it is most likely a 
+
+64-bit system. Otherwise, you have a 32-bit version, but here™s how to ˜nd 
+
+out for sure:
+On Windows, select 
+Start
+Control Panel
+System
+ and check whether 
+System Type says 64-bit or 32-bit. 
